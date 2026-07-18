@@ -1,56 +1,43 @@
 .student-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  border: 1px solid #f1f5f9;
-  transition: all 0.25s ease;
-  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .student-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.1);
-  border-color: #4f46e5;
-}
-
-.student-avatar {
-  border-radius: 50%;
-  width: 85px;
-  height: 85px;
-  object-fit: cover;
-  margin: 0 auto 12px auto;
-  border: 3px solid #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 .student-name {
-  font-size: 1.2rem;
-  color: #0f172a;
-  font-weight: 600;
-  margin-bottom: 4px;
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  flex: 1; 
 }
 
 .student-email {
-  font-size: 0.85rem;
-  color: #64748b;
-  margin-bottom: 18px;
+  margin: 0 20px;
+  color: #7f8c8d;
+  font-size: 14px;
+  flex: 1;
 }
 
 .remove-btn {
-  background-color: #fef2f2;
-  color: #ef4444;
-  border: 1px solid #fee2e2;
   padding: 8px 14px;
+  background-color: #e74c3c; 
+  color: white;
+  border: none;
   border-radius: 6px;
+  font-size: 13px;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 0.85rem;
-  width: 100%;
-  transition: all 0.2s;
+  font-weight: 500;
+  transition: background-color 0.2s;
 }
 
-.remove-btn:hover {
-  background-color: #ef4444;
-  color: white;
-}

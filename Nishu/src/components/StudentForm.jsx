@@ -1,49 +1,50 @@
 import React, { useState } from 'react';
-import './StudentForm.css'; 
+import './StudentForm.css';
 
 function StudentForm({ onAddStudent }) {
   const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     if (!firstName || !email) {
-      setError('Both Name and Email are required!');
+      alert("Please fill out First Name and Email!");
       return;
     }
-    
-    setError('');
-    onAddStudent({ first_name: firstName, email: email });
+
+    onAddStudent({
+      first_name: firstName,
+      last_name: lastName,
+      email: email
+    });
+
     setFirstName('');
+    setLastName('');
     setEmail('');
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <h3 className="form-title">Add New Student</h3>
-      {error && <p className="error-message">{error}</p>}
-      
-      <div className="input-group">
-        <input 
-          className="form-input"
-          type="text" 
-          placeholder="First Name" 
-          value={firstName} 
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input 
-          className="form-input"
-          type="email" 
-          placeholder="Email Address" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <button className="submit-btn" type="submit">
-        Register Student
-      </button>
+    <form className="student-form" onSubmit={handleSubmit}>
+      <input 
+        type="text" 
+        placeholder="First Name" 
+        value={firstName} 
+        onChange={(e) => setFirstName(e.target.value)} 
+      />
+      <input 
+        type="text" 
+        placeholder="Last Name" 
+        value={lastName} 
+        onChange={(e) => setLastName(e.target.value)} 
+      />
+      <input 
+        type="email" 
+        placeholder="Email Address" 
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)} 
+      />
+      <button type="submit" className="add-btn">Add Student</button>
     </form>
   );
 }
